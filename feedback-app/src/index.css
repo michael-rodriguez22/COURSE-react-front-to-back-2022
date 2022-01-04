@@ -62,7 +62,7 @@ header {
 .rating li,
 .num-display {
   position: relative;
-  background: #f4f4f4;
+  background: #cccccc;
   width: 50px;
   height: 50px;
   padding: 10px;
