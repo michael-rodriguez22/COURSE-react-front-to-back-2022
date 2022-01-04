@@ -7,7 +7,7 @@ const RatingSelect = ({ select }) => {
   const { feedbackEdit } = useContext(FeedbackContext)
 
   useEffect(() => {
-    setSelected(feedbackEdit.item.rating)
+    feedbackEdit.edit && setSelected(feedbackEdit.item.rating)
   }, [feedbackEdit])
 
   const handleChange = e => {
