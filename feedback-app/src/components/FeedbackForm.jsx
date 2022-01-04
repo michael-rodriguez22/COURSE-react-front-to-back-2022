@@ -18,7 +18,7 @@ const FeedbackForm = () => {
     if (feedbackEdit.edit === true) {
       setBtnDisabled(false)
       setText(feedbackEdit.item.text)
-      setRating(feedbackEdit.item.rating)
+      // setRating(feedbackEdit.item.rating)
     } else {
       setBtnDisabled(true)
       setText("")
@@ -60,7 +60,15 @@ const FeedbackForm = () => {
   return (
     <>
       <Card>
-        <form onSubmit={handleSubmit}>
+        <form
+          onSubmit={handleSubmit}
+          onKeyDown={e => {
+            if (e.key === "Enter" && e.target.type !== "submit") {
+              e.preventDefault()
+              return false
+            }
+          }}
+        >
           {feedbackEdit.edit && (
             <button
               className="cancel-update"
