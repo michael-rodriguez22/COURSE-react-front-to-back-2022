@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from "react"
+import { FaTimes } from "react-icons/fa"
 import Card from "./shared/Card"
 import Button from "./shared/Button"
 import RatingSelect from "./RatingSelect"
@@ -10,7 +11,7 @@ const FeedbackForm = () => {
   const [btnDisabled, setBtnDisabled] = useState(true)
   const [message, setMessage] = useState("")
 
-  const { addFeedback, feedbackEdit, updateFeedback } =
+  const { addFeedback, feedbackEdit, setFeedbackEdit, updateFeedback } =
     useContext(FeedbackContext)
 
   useEffect(() => {
@@ -18,6 +19,10 @@ const FeedbackForm = () => {
       setBtnDisabled(false)
       setText(feedbackEdit.item.text)
       setRating(feedbackEdit.item.rating)
+    } else {
+      setBtnDisabled(true)
+      setText("")
+      setRating(10)
     }
   }, [feedbackEdit])
 
@@ -56,6 +61,15 @@ const FeedbackForm = () => {
     <>
       <Card>
         <form onSubmit={handleSubmit}>
+          {feedbackEdit.edit && (
+            <button
+              className="cancel-update"
+              onClick={() => setFeedbackEdit({ item: {}, edit: false })}
+            >
+              <span>Cancel Update</span>
+              <FaTimes size={20} />
+            </button>
+          )}
           <h2>How would you rate your experience with us?</h2>
           <RatingSelect select={rating => setRating(rating)} />
           <div className="input-group">

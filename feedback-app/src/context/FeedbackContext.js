@@ -30,8 +30,10 @@ export const FeedbackProvider = ({ children }) => {
   }
 
   const deleteFeedback = id => {
-    window.confirm("Are you sure you want to delete this item?") &&
+    if (window.confirm("Are you sure you want to delete this item?")) {
       setFeedback(feedback.filter(item => item.id !== id))
+      setFeedbackEdit({ item: {}, edit: false })
+    }
   }
 
   // update feedback item
@@ -53,6 +55,7 @@ export const FeedbackProvider = ({ children }) => {
         value={{
           feedback,
           feedbackEdit,
+          setFeedbackEdit,
           deleteFeedback,
           addFeedback,
           editFeedback,
