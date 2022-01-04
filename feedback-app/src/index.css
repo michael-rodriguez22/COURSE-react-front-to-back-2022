@@ -32,6 +32,16 @@ header {
   margin-bottom: 30px;
 }
 
+.header-link {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.5s;
+}
+
+.header-link:hover {
+  color: #ff6a95;
+}
+
 .card {
   background-color: #fff;
   color: #333;
@@ -187,7 +197,6 @@ input:focus {
 
 .about-link {
   position: absolute;
-  bottom: 20px;
   right: 20px;
   color: #fff;
   cursor: pointer;
@@ -195,6 +204,7 @@ input:focus {
 
 .about-link a {
   color: #fff;
+  transition: color 0.5s;
 }
 
 .about-link a:hover {
