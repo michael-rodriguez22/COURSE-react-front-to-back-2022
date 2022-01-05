@@ -1,0 +1,19 @@
+{
+  "feedback": [
+    {
+      "text": "Vegetoid's here for your health",
+      "rating": 10,
+      "id": 1
+    },
+    {
+      "text": "Farmed locally, very locally...",
+      "rating": 10,
+      "id": 2
+    },
+    {
+      "text": "Fresh morning taste...",
+      "rating": 10,
+      "id": 3
+    }
+  ]
+}
