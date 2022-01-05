@@ -1,0 +1,19 @@
+{
+  "feedback": [
+    {
+      "rating": 5,
+      "text": "Vegetoid's",
+      "id": 1
+    },
+    {
+      "rating": 8,
+      "text": "here for",
+      "id": 2
+    },
+    {
+      "rating": 10,
+      "text": "your health...",
+      "id": 3
+    }
+  ]
+}
