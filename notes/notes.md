@@ -21,3 +21,13 @@ HTTP Status Codes (general):
 - 300's Redirect: further action must be taken
 - 400's Client Error: invalid request in some capacity
 - 500's Internal Server Error: server unable to fulfill a valid req
+
+Reducers:
+
+- can be used without redux or other third party state management libraries
+- accept (state, action) as arguments
+- evaluate the action.type, usually through a switch statement
+- action object always contains a type property and usually contains a payload object containing data to update state
+- copy unchanged properties of state using spread operator, change desired property
+- return new state object
+- by default (if action.type is not accounted for) return unchanged state
