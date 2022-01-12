@@ -7,14 +7,14 @@ import { ReactComponent as EditIcon } from "./editIcon.svg"
 import { ReactComponent as ExploreIcon } from "./exploreIcon.svg"
 import { ReactComponent as GoogleIcon } from "./googleIcon.svg"
 import { ReactComponent as HomeIcon } from "./homeIcon.svg"
-import { ReactComponent as KeyboardArrowRightIcon } from "./keyboardArrowRightIcon.svg"
+import { ReactComponent as ArrowRightIcon } from "./keyboardArrowRightIcon.svg"
 import { ReactComponent as OfferIcon } from "./localOfferIcon.svg"
 import { ReactComponent as LockIcon } from "./lockIcon.svg"
 import { ReactComponent as PersonIcon } from "./personIcon.svg"
 import { ReactComponent as PersonOutlineIcon } from "./personOutlineIcon.svg"
 import { ReactComponent as ShareIcon } from "./shareIcon.svg"
 import { ReactComponent as UploadIcon } from "./uploadIcon.svg"
-import { ReactComponent as VisibilityIcon } from "./visibilityIcon.svg"
+import VisibilityIconSrc from "./visibilityIcon.svg"
 
 export {
   BadgeIcon,
@@ -26,12 +26,12 @@ export {
   ExploreIcon,
   GoogleIcon,
   HomeIcon,
-  KeyboardArrowRightIcon,
+  ArrowRightIcon,
   OfferIcon,
   LockIcon,
   PersonIcon,
   PersonOutlineIcon,
   ShareIcon,
   UploadIcon,
-  VisibilityIcon,
+  VisibilityIconSrc,
 }
