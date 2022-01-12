@@ -31,3 +31,11 @@ Reducers:
 - copy unchanged properties of state using spread operator, change desired property
 - return new state object
 - by default (if action.type is not accounted for) return unchanged state
+
+you can return a function inside of the useEffect hook for cleanup purposes (for example, if the component unmounts before an api call is resolved, you can handle this gracefully without throwing an error)
+
+memoization (useMemo hook): caches the results of an expensive function call so that when those same inputs are provided, you can access the results quickly instead of performing the function call again
+
+useCallback hook similar to useMemo, but returns memoized callback function instead of memoized value
+
+both useMemo and useCallback accept a function and dependency array as arguments. both are used to optimize performance
