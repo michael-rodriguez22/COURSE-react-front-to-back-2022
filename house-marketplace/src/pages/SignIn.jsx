@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
-
+import { toast } from "react-toastify"
 import { ArrowRightIcon, VisibilityIconSrc } from "../assets/svg"
 
 function SignIn() {
@@ -35,7 +35,7 @@ function SignIn() {
 
       userCredential.user && navigate("/")
     } catch (error) {
-      console.log(error)
+      toast.error("Invalid User Credentials")
     }
   }
 

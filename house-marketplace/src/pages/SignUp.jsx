@@ -7,6 +7,7 @@ import {
 } from "firebase/auth"
 import { setDoc, doc, serverTimestamp } from "firebase/firestore"
 import { db } from "../firebase.config"
+import { toast } from "react-toastify"
 import { ArrowRightIcon, VisibilityIconSrc } from "../assets/svg"
 
 function SignUp() {
@@ -53,7 +54,7 @@ function SignUp() {
 
       navigate("/")
     } catch (error) {
-      console.log(error)
+      toast.error(error.message)
     }
   }
 
