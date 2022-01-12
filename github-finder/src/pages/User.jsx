@@ -3,14 +3,17 @@ import GitHubContext from "../context/github/GitHubContext"
 import { useParams, Link } from "react-router-dom"
 import { FaCodepen, FaStore, FaUserFriends, FaUsers } from "react-icons/fa"
 import Spinner from "../components/layout/Spinner"
+import RepoList from "../components/repos/RepoList"
 
 function User() {
-  const { getUser, user, loading } = useContext(GitHubContext)
+  const { getUser, getUserRepos, user, repos, loading } =
+    useContext(GitHubContext)
 
   const params = useParams()
 
   useEffect(() => {
     getUser(params.login)
+    getUserRepos(params.login)
   }, [])
 
   const {
@@ -60,6 +63,7 @@ function User() {
               </div>
             </div>
           </div>
+
           {/* basic info */}
           <div className="col-span-2">
             <div className="mb-6">
@@ -82,6 +86,7 @@ function User() {
                 </a>
               </div>
             </div>
+
             {/* basic stats */}
             <div className="w-full rounded-lg shadow-md bg-base-100 stats">
               {location && (
@@ -121,6 +126,7 @@ function User() {
             </div>
           </div>
         </div>
+
         {/* additional stats */}
         <div className="w-full py05 mb-6 rounded-lg shadow-md bg-base-100 stats">
           <div className="stat">
@@ -160,6 +166,8 @@ function User() {
             </div>
           </div>
         </div>
+
+        <RepoList repos={repos} />
       </div>
     </>
   )
