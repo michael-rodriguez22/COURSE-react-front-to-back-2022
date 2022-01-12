@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
+
 import { ArrowRightIcon, VisibilityIconSrc } from "../assets/svg"
 
 function SignIn() {
@@ -19,6 +21,24 @@ function SignIn() {
     }))
   }
 
+  const onSubmit = async e => {
+    e.preventDefault()
+
+    const auth = getAuth()
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      )
+
+      userCredential.user && navigate("/")
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <>
       <div className="pageContainer">
@@ -27,7 +47,7 @@ function SignIn() {
         </header>
 
         <main>
-          <form>
+          <form onSubmit={onSubmit}>
             <input
               className="emailInput"
               type="email"
