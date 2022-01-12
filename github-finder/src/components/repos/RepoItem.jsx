@@ -22,7 +22,7 @@ function RepoItem({ repo }) {
           </a>
         </h3>
         <p className="my-3">{description}</p>
-        <div>
+        <div className="flex flex-nowrap justify-evenly md:justify-start">
           <div className="mr-2 badge badge-info badge-lg" title="watchers">
             <FaEye className="mr-2" />
             {watchers_count}
