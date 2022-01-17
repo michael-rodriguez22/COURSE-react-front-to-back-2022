@@ -5,7 +5,7 @@ import { ReactComponent as CheckIcon } from "./checkIcon.svg"
 import { ReactComponent as DeleteIcon } from "./deleteIcon.svg"
 import { ReactComponent as EditIcon } from "./editIcon.svg"
 import { ReactComponent as ExploreIcon } from "./exploreIcon.svg"
-import { ReactComponent as GoogleIcon } from "./googleIcon.svg"
+import googleIconSrc from "./googleIcon.svg"
 import { ReactComponent as HomeIcon } from "./homeIcon.svg"
 import { ReactComponent as ArrowRightIcon } from "./keyboardArrowRightIcon.svg"
 import { ReactComponent as OfferIcon } from "./localOfferIcon.svg"
@@ -24,7 +24,7 @@ export {
   DeleteIcon,
   EditIcon,
   ExploreIcon,
-  GoogleIcon,
+  googleIconSrc,
   HomeIcon,
   ArrowRightIcon,
   OfferIcon,
