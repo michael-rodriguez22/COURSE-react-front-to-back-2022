@@ -93,6 +93,7 @@ button {
 .category,
 .explore {
   margin: 1rem;
+  padding-bottom: 85px;
 }
 @media (min-width: 1024px) {
   .pageContainer,
@@ -643,6 +644,7 @@ button {
   cursor: pointer;
   font-weight: 600;
   color: #00cc66;
+  margin-right: 2px;
 }
 
 .profileCard {
@@ -650,7 +652,13 @@ button {
   border-radius: 1rem;
   padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.2);
-  max-width: 500px;
+  max-width: 600px;
+}
+
+.profileCardRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .profileDetails {
@@ -661,6 +669,7 @@ button {
 .profileName,
 .profileEmail,
 .profileAddress,
+.profilePassword,
 .profileAddressActive,
 .profileEmailActive,
 .profileNameActive {
@@ -668,23 +677,18 @@ button {
   margin: 0.3rem 0;
   font-weight: 600;
   width: 100%;
+  padding: 6px;
 }
-.profileNameActive {
-  background-color: rgba(44, 44, 44, 0.1);
-}
-
-.profileEmail,
-.profileAddress,
-.profileAddressActive,
-.profileEmailActive {
-  font-weight: 500;
-}
-.profileEmailActive {
-  background-color: rgba(44, 44, 44, 0.1);
-}
-
+.profileNameActive,
+.profileEmailActive,
+.profilePassword,
 .profileAddressActive {
+  font-weight: 500;
   background-color: rgba(44, 44, 44, 0.1);
+}
+
+.profilePassword {
+  width: 80%;
 }
 
 .createListing {

@@ -9,7 +9,6 @@ import { setDoc, doc, serverTimestamp } from "firebase/firestore"
 import { db } from "../firebase.config"
 import { toast } from "react-toastify"
 import { ArrowRightIcon, VisibilityIconSrc } from "../assets/svg"
-// import OAuth from "../components/OAuth"
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false)
@@ -31,32 +30,45 @@ function SignUp() {
 
   const onSubmit = async e => {
     e.preventDefault()
+    if (name && email && password) {
+      const statusToast = toast.loading("Signing up...")
+      try {
+        const auth = getAuth()
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        )
 
-    try {
-      const auth = getAuth()
+        const user = userCredential.user
 
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      )
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        })
 
-      const user = userCredential.user
+        const formDataCopy = { ...formData }
+        delete formDataCopy.password
+        formDataCopy.timestamp = serverTimestamp()
 
-      updateProfile(auth.currentUser, {
-        displayName: name,
-      })
+        await setDoc(doc(db, "users", user.uid), formDataCopy)
 
-      const formDataCopy = { ...formData }
-      delete formDataCopy.password
-      formDataCopy.timestamp = serverTimestamp()
+        toast.update(statusToast, {
+          render: "Sign up successful! Welcome to the House Marketplace.",
+          type: "success",
+          isLoading: false,
+          autoClose: 3000,
+        })
 
-      await setDoc(doc(db, "users", user.uid), formDataCopy)
-
-      navigate("/")
-    } catch (error) {
-      toast.error(error.message)
-    }
+        navigate("/")
+      } catch (error) {
+        toast.update(statusToast, {
+          render: error.message,
+          type: "error",
+          isLoading: false,
+          autoClose: 3000,
+        })
+      }
+    } else toast.warn("Please fill in all fields")
   }
 
   return (
@@ -65,7 +77,6 @@ function SignUp() {
         <header>
           <p className="pageHeader">Sign up with us today!</p>
         </header>
-
         <main>
           <form onSubmit={onSubmit}>
             <input
@@ -76,7 +87,6 @@ function SignUp() {
               value={name}
               onChange={onChange}
             />
-
             <input
               className="emailInput"
               type="email"
@@ -85,7 +95,6 @@ function SignUp() {
               value={email}
               onChange={onChange}
             />
-
             <div className="passwordInputDiv">
               <input
                 className="passwordInput"
@@ -95,7 +104,6 @@ function SignUp() {
                 value={password}
                 onChange={onChange}
               />
-
               <img
                 className="showPassword"
                 src={VisibilityIconSrc}
@@ -103,11 +111,9 @@ function SignUp() {
                 onClick={() => setShowPassword(prevState => !prevState)}
               />
             </div>
-
             <Link className="forgotPasswordLink" to="/forgot-password">
               Forgot Password
             </Link>
-
             <div className="signUpBar">
               <p className="signUpText">Sign Up</p>
               <button className="signUpButton">
@@ -115,9 +121,6 @@ function SignUp() {
               </button>
             </div>
           </form>
-
-          {/* <OAuth /> */}
-
           <Link className="registerLink" to="/sign-in">
             Sign In Instead
           </Link>

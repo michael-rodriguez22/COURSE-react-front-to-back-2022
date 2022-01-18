@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom"
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
 import { toast } from "react-toastify"
 import { ArrowRightIcon, VisibilityIconSrc } from "../assets/svg"
-// import OAuth from "../components/OAuth"
 
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false)
@@ -24,19 +23,28 @@ function SignIn() {
 
   const onSubmit = async e => {
     e.preventDefault()
-
-    const auth = getAuth()
-
+    const statusToast = toast.loading("Signing in...")
     try {
+      const auth = getAuth()
       const userCredential = await signInWithEmailAndPassword(
         auth,
         email,
         password
       )
-
+      toast.update(statusToast, {
+        render: "You have successfully signed in",
+        type: "success",
+        isLoading: false,
+        autoClose: 3000,
+      })
       userCredential.user && navigate("/")
     } catch (error) {
-      toast.error("Invalid User Credentials")
+      toast.update(statusToast, {
+        render: "Invalid user credentials",
+        type: "error",
+        isLoading: false,
+        autoClose: 3000,
+      })
     }
   }
 
@@ -46,7 +54,6 @@ function SignIn() {
         <header>
           <p className="pageHeader">Welcome back!</p>
         </header>
-
         <main>
           <form onSubmit={onSubmit}>
             <input
@@ -57,7 +64,6 @@ function SignIn() {
               value={email}
               onChange={onChange}
             />
-
             <div className="passwordInputDiv">
               <input
                 className="passwordInput"
@@ -67,7 +73,6 @@ function SignIn() {
                 value={password}
                 onChange={onChange}
               />
-
               <img
                 className="showPassword"
                 src={VisibilityIconSrc}
@@ -75,11 +80,9 @@ function SignIn() {
                 onClick={() => setShowPassword(prevState => !prevState)}
               />
             </div>
-
             <Link className="forgotPasswordLink" to="/forgot-password">
               Forgot Password
             </Link>
-
             <div className="signInBar">
               <p className="signInText">Sign In</p>
               <button className="signInButton">
@@ -87,9 +90,6 @@ function SignIn() {
               </button>
             </div>
           </form>
-
-          {/* <OAuth /> */}
-
           <Link className="registerLink" to="/sign-up">
             Sign Up Instead
           </Link>
