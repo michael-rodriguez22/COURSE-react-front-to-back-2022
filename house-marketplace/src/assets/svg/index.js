@@ -1,6 +1,6 @@
 import { ReactComponent as BadgeIcon } from "./badgeIcon.svg"
-import { ReactComponent as BathtubIcon } from "./bathtubIcon.svg"
-import { ReactComponent as BedIcon } from "./bedIcon.svg"
+import bathtubIconSrc from "./bathtubIcon.svg"
+import bedIconSrc from "./bedIcon.svg"
 import { ReactComponent as CheckIcon } from "./checkIcon.svg"
 import { ReactComponent as DeleteIcon } from "./deleteIcon.svg"
 import { ReactComponent as EditIcon } from "./editIcon.svg"
@@ -18,8 +18,8 @@ import VisibilityIconSrc from "./visibilityIcon.svg"
 
 export {
   BadgeIcon,
-  BathtubIcon,
-  BedIcon,
+  bathtubIconSrc,
+  bedIconSrc,
   CheckIcon,
   DeleteIcon,
   EditIcon,
