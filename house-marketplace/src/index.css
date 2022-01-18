@@ -698,10 +698,16 @@ button {
   box-shadow: rgba(0, 0, 0, 0.2);
   margin-top: 2rem;
   font-weight: 600;
-  max-width: 500px;
+  max-width: 600px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: 0.3s;
+}
+
+.createListing:hover {
+  background-color: #00cc66;
+  color: white;
 }
 
 .listingText {

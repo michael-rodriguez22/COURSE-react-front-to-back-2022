@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
 import { toast } from "react-toastify"
-import { ArrowRightIcon, VisibilityIconSrc } from "../assets/svg"
+import { ArrowRightIcon, visibilityIconSrc } from "../assets/svg"
 
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false)
@@ -75,7 +75,7 @@ function SignIn() {
               />
               <img
                 className="showPassword"
-                src={VisibilityIconSrc}
+                src={visibilityIconSrc}
                 alt="show password"
                 onClick={() => setShowPassword(prevState => !prevState)}
               />

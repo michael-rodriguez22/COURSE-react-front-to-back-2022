@@ -8,7 +8,7 @@ import {
 import { setDoc, doc, serverTimestamp } from "firebase/firestore"
 import { db } from "../firebase.config"
 import { toast } from "react-toastify"
-import { ArrowRightIcon, VisibilityIconSrc } from "../assets/svg"
+import { ArrowRightIcon, visibilityIconSrc } from "../assets/svg"
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false)
@@ -106,7 +106,7 @@ function SignUp() {
               />
               <img
                 className="showPassword"
-                src={VisibilityIconSrc}
+                src={visibilityIconSrc}
                 alt="show password"
                 onClick={() => setShowPassword(prevState => !prevState)}
               />

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import {
   getAuth,
   updateProfile,
@@ -9,8 +10,9 @@ import {
 import { updateDoc, doc } from "firebase/firestore"
 import { db } from "../firebase.config"
 import { useNavigate } from "react-router-dom"
-import { FaEdit } from "react-icons/fa"
 import { toast } from "react-toastify"
+import { FaEdit } from "react-icons/fa"
+import { ArrowRightIcon, HomeIcon } from "../assets/svg"
 
 function Profile() {
   const auth = getAuth()
@@ -186,6 +188,12 @@ function Profile() {
             )}
           </form>
         </div>
+
+        <Link to="/create-listing" className="createListing">
+          <HomeIcon element="p" />
+          <p>Sell or rent your home</p>
+          <ArrowRightIcon />
+        </Link>
       </main>
     </div>
   )
