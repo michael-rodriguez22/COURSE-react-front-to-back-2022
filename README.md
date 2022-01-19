@@ -8,6 +8,8 @@ https://angry-swirles-b6e3c6.netlify.app/
 
 ## GitHub Finder
 
-https://course-react-front-to-back-2022.vercel.app/
+https://michael-rodriguez22-github-finder.vercel.app/
 
 ## House Marketplace
+
+https://michael-rodriguez22-house-marketplace-4xeh7tz7n.vercel.app/
