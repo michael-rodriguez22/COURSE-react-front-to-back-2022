@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar"
 import PrivateRoute from "./components/PrivateRoute"
 import {
   Category,
+  Contact,
   CreateListing,
   Explore,
   Listing,
@@ -34,6 +35,7 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/create-listing" element={<CreateListing />} />
+          <Route path="/contact/:ownerId" element={<Contact />} />
         </Routes>
         <Navbar />
       </Router>
