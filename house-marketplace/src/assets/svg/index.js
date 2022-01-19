@@ -12,7 +12,7 @@ import { ReactComponent as OfferIcon } from "./localOfferIcon.svg"
 import { ReactComponent as LockIcon } from "./lockIcon.svg"
 import { ReactComponent as PersonIcon } from "./personIcon.svg"
 import { ReactComponent as PersonOutlineIcon } from "./personOutlineIcon.svg"
-import { ReactComponent as ShareIcon } from "./shareIcon.svg"
+import shareIconSrc from "./shareIcon.svg"
 import { ReactComponent as UploadIcon } from "./uploadIcon.svg"
 import visibilityIconSrc from "./visibilityIcon.svg"
 
@@ -31,7 +31,7 @@ export {
   LockIcon,
   PersonIcon,
   PersonOutlineIcon,
-  ShareIcon,
+  shareIconSrc,
   UploadIcon,
   visibilityIconSrc,
 }

@@ -14,7 +14,8 @@ import Spinner from "../components/Spinner"
 import { toast } from "react-toastify"
 
 function CreateListing() {
-  const [geolocationEnabled, setGeolocationEnabled] = useState(true)
+  // can set to false if not using Google Geocode API
+  const geolocationEnabled = true
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     type: "rent",
@@ -170,11 +171,10 @@ function CreateListing() {
                   render: `${image.name} upload is paused`,
                 })
                 break
-              case "running":
+              default:
                 toast.update(statusToast, {
                   render: `${image.name} is uploading`,
                 })
-                break
             }
           },
           error => {
