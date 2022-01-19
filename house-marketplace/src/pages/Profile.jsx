@@ -190,9 +190,9 @@ function Profile() {
         </div>
 
         <Link to="/create-listing" className="createListing">
-          <HomeIcon element="p" />
+          <HomeIcon className="createListingIcon" />
           <p>Sell or rent your home</p>
-          <ArrowRightIcon />
+          <ArrowRightIcon className="createListingIcon" />
         </Link>
       </main>
     </div>
