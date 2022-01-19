@@ -1,5 +1,14 @@
 import { useState, useEffect, useRef } from "react"
 import { getAuth, onAuthStateChanged } from "firebase/auth"
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage"
+import { addDoc, collection, serverTimestamp } from "firebase/firestore"
+import { db } from "../firebase.config"
+import { v4 as uuidv4 } from "uuid"
 import { useNavigate } from "react-router-dom"
 import Spinner from "../components/Spinner"
 import { toast } from "react-toastify"
@@ -136,12 +145,77 @@ function CreateListing() {
     } else {
       geolocation.lat = latitude
       geolocation.lng = longitude
-      location = address
     }
 
+    // Store images in firebase storage
+    const storeImage = async image => {
+      return new Promise((resolve, reject) => {
+        const storage = getStorage()
+        const fileName = `${auth.currentUser.uid}-${image.name}-${uuidv4()}`
+        const storageRef = ref(storage, "images/" + fileName)
+        const uploadTask = uploadBytesResumable(storageRef, image)
+        const statusToast = toast.loading(`Uploading ${image.name}`)
+        uploadTask.on(
+          "state_changed",
+          snapshot => {
+            // Observe state change events such as progress, pause, and resume
+            const progress =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            toast.update(statusToast, {
+              render: `${image.name} upload is ${progress}% done`,
+            })
+            switch (snapshot.state) {
+              case "paused":
+                toast.update(statusToast, {
+                  render: `${image.name} upload is paused`,
+                })
+                break
+              case "running":
+                toast.update(statusToast, {
+                  render: `${image.name} is uploading`,
+                })
+                break
+            }
+          },
+          error => {
+            toast.dismiss(statusToast)
+            toast.error(`Something went wrong while updloading ${image.name}`)
+            return reject(error)
+          },
+          () => {
+            return getDownloadURL(uploadTask.snapshot.ref).then(downloadURL => {
+              toast.dismiss(statusToast)
+              toast.success(`${image.name} was successfully uploaded`)
+              return resolve(downloadURL)
+            })
+          }
+        )
+      })
+    }
+
+    const imgUrls = await Promise.all(
+      [...images].map(image => storeImage(image))
+    ).catch(() => {
+      setLoading(false)
+      return toast.error("Something went wrong while uploading your image(s)")
+    })
+
+    const formDataCopy = {
+      ...formData,
+      imgUrls,
+      geolocation,
+      timestamp: serverTimestamp(),
+    }
+
+    delete formDataCopy.images
+    delete formDataCopy.address
+    formDataCopy.location = address
+    !formDataCopy.offer && delete formDataCopy.discountedPrice
+
+    const docRef = await addDoc(collection(db, "listings"), formDataCopy)
     setLoading(false)
-    navigate("/profile")
-    return toast.success("Listing succesfully created!")
+    toast.success("Listing created!")
+    navigate(`/category/${formDataCopy.type}/${docRef.id}`)
   }
 
   if (loading) return <Spinner />

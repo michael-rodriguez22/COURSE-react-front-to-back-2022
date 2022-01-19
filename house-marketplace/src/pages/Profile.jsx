@@ -49,22 +49,14 @@ function Profile() {
     if (name !== auth.currentUser.displayName) {
       const statusToast = toast.loading("Updating name...")
       submitNameFirebase()
-        .then(() =>
-          toast.update(statusToast, {
-            render: "Name was successfully updated",
-            type: "success",
-            isLoading: false,
-            autoClose: 3000,
-          })
-        )
-        .catch(() =>
-          toast.update(statusToast, {
-            render: "Something went wrong...",
-            type: "error",
-            isLoading: false,
-            autoClose: 3000,
-          })
-        )
+        .then(() => {
+          toast.dismiss(statusToast)
+          toast.success("Name was successfully updated")
+        })
+        .catch(() => {
+          toast.dismiss(statusToast)
+          toast.error("Something went wrong while updating your name")
+        })
     }
     setNameEditState(!nameEditState)
   }
@@ -104,20 +96,12 @@ function Profile() {
       const statusToast = toast.loading("Updating email...")
       submitEmailFirebase()
         .then(() => {
-          toast.update(statusToast, {
-            render: "Email address was successfully updated",
-            type: "success",
-            isLoading: false,
-            autoClose: 3000,
-          })
+          toast.dismiss(statusToast)
+          toast.success("Email address was successfully updated")
         })
         .catch(() => {
-          toast.update(statusToast, {
-            render: "Something went wrong...",
-            type: "error",
-            isLoading: false,
-            autoClose: 3000,
-          })
+          toast.dismiss(statusToast)
+          toast.error("Something went wrong while updating your email address")
           setEmail(auth.currentUser.email)
         })
       setPassword("")
