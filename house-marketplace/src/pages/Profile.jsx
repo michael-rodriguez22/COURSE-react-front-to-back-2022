@@ -53,7 +53,6 @@ function Profile() {
       const listings = []
       querySnap.forEach(doc => listings.push({ id: doc.id, data: doc.data() }))
 
-      console.log(listings)
       setListings(listings)
       setLoading(false)
     }
