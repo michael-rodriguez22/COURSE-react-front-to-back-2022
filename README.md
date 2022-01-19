@@ -1,6 +1,19 @@
 # react-front-to-back-2022
 
-A collection of reflections, reviews, and project files for Brad Traversy's course "React Front To Back 2022".
+A collection of project files and reviews for [Brad Traversy's](https://www.traversymedia.com/) course ["React Front To Back 2022"](https://www.udemy.com/course/react-front-to-back-2022/?referralCode=4A622C7E48DB66154114).
+
+## Feedback App
+
+https://angry-swirles-b6e3c6.netlify.app/
+
+## GitHub Finder
+
+https://michael-rodriguez22-github-finder.vercel.app/
+
+## House Marketplace
+
+https://michael-rodriguez22-house-marketplace-4xeh7tz7n.vercel.app/
+
 
 ## Review
 
@@ -21,15 +34,3 @@ The styles used for this project all come from a single pre-made index.css file 
 At the time of writing this review, Brad has mentioned a possible fourth project that will be added to the course, but it has not yet been added.
 
 Overall I was very happy with the course and I found it well worth the time and money spent!
-
-## Feedback App
-
-https://angry-swirles-b6e3c6.netlify.app/
-
-## GitHub Finder
-
-https://michael-rodriguez22-github-finder.vercel.app/
-
-## House Marketplace
-
-https://michael-rodriguez22-house-marketplace-4xeh7tz7n.vercel.app/
