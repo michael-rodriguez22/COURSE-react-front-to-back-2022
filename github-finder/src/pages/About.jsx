@@ -15,15 +15,11 @@ function About() {
         </strong>
         .
       </p>
-      <p className="text-lg text-gray-400">
-        Version <span className="text-white">1.0.0</span>
-      </p>
-      <p className="text-lg text-gray-400">
-        Layout By:
-        <a className="text-white" href="https://twitter.com/hassibmoddasser">
-          &nbsp;Hassib Moddasser
-        </a>
-      </p>
+      <a href="https://github.com/michael-rodriguez22/COURSE-react-front-to-back-2022">
+        <p className="text-xl text-gray-300">
+          Click here to view project files and my review for the full course!
+        </p>
+      </a>
     </div>
   )
 }
