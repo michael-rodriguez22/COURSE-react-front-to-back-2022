@@ -57,12 +57,9 @@ function CreateListing() {
   useEffect(() => {
     if (isMounted) {
       onAuthStateChanged(auth, user => {
-        if (user) {
-          setFormData({ ...formData, userRef: user.uid })
-        } else {
-          toast.warning("You must be signed in to create a listing")
-          navigate("/sign-in")
-        }
+        user
+          ? setFormData({ ...formData, userRef: user.uid })
+          : navigate("/sign-in")
       })
     }
 
@@ -179,13 +176,17 @@ function CreateListing() {
           },
           error => {
             toast.dismiss(statusToast)
-            toast.error(`Something went wrong while updloading ${image.name}`)
+            toast.error(`Something went wrong while updloading ${image.name}`, {
+              autoClose: 2000,
+            })
             return reject(error)
           },
           () => {
             return getDownloadURL(uploadTask.snapshot.ref).then(downloadURL => {
               toast.dismiss(statusToast)
-              toast.success(`${image.name} was successfully uploaded`)
+              toast.success(`${image.name} was successfully uploaded`, {
+                autoClose: 1000,
+              })
               return resolve(downloadURL)
             })
           }
@@ -197,7 +198,9 @@ function CreateListing() {
       [...images].map(image => storeImage(image))
     ).catch(() => {
       setLoading(false)
-      return toast.error("Something went wrong while uploading your image(s)")
+      return toast.error("Something went wrong while uploading your image(s)", {
+        autoClose: 2000,
+      })
     })
 
     const formDataCopy = {

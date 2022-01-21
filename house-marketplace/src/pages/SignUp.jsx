@@ -56,19 +56,26 @@ function SignUp() {
           render: "Sign up successful! Welcome to the House Marketplace.",
           type: "success",
           isLoading: false,
-          autoClose: 3000,
+          autoClose: 2000,
+          closeOnClick: true,
+          closeButton: true,
         })
 
         navigate("/")
       } catch (error) {
+        const emailTaken = error.code === "auth/email-already-in-use"
         toast.update(statusToast, {
-          render: error.message,
+          render: emailTaken
+            ? "There is already an account with that email address"
+            : "Something went wrong",
           type: "error",
           isLoading: false,
-          autoClose: 3000,
+          autoClose: emailTaken ? 3000 : 2000,
+          closeOnClick: true,
+          closeButton: true,
         })
       }
-    } else toast.warn("Please fill in all fields")
+    } else toast.warn("Please fill in all fields", { autoClose: 2000 })
   }
 
   return (

@@ -35,15 +35,19 @@ function SignIn() {
         render: "You have successfully signed in",
         type: "success",
         isLoading: false,
-        autoClose: 3000,
+        autoClose: 2000,
+        closeOnClick: true,
+        closeButton: true,
       })
       userCredential.user && navigate("/")
     } catch (error) {
       toast.update(statusToast, {
-        render: "Invalid user credentials",
+        render: "Invalid sign in credentials",
         type: "error",
         isLoading: false,
-        autoClose: 3000,
+        autoClose: 2000,
+        closeOnClick: true,
+        closeButton: true,
       })
     }
   }
