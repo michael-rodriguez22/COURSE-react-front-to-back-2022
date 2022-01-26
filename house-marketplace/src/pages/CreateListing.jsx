@@ -260,7 +260,7 @@ function CreateListing() {
             id="name"
             value={name}
             onChange={onMutate}
-            maxLength="32"
+            maxLength="64"
             minLength="10"
             required
           />
@@ -459,8 +459,8 @@ function CreateListing() {
             multiple
             // required
           />
-          <button type="submit" className="primaryButton createListingButton">
-            Create Listing!
+          <button type="submit" className="primaryButton submitListing">
+            Create Listing
           </button>
         </form>
       </main>

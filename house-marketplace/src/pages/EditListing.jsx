@@ -292,7 +292,7 @@ function EditListing() {
             id="name"
             value={name}
             onChange={onMutate}
-            maxLength="32"
+            maxLength="64"
             minLength="10"
             required
           />
@@ -491,8 +491,8 @@ function EditListing() {
             multiple
             // required
           />
-          <button type="submit" className="primaryButton createListingButton">
-            Edit Listing
+          <button type="submit" className="primaryButton submitListing">
+            Confirm Edit
           </button>
         </form>
       </main>
