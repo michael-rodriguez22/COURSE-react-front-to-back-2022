@@ -20,8 +20,7 @@ import {
 import { db } from "../firebase.config"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
-import { FaEdit } from "react-icons/fa"
-import { ArrowRightIcon, HomeIcon } from "../assets/svg"
+import { EditIcon } from "../assets/svg"
 import Spinner from "../components/Spinner"
 import ListingItem from "../components/ListingItem"
 
@@ -177,8 +176,12 @@ function Profile() {
         <div className="profileCard">
           <form onSubmit={e => e.preventDefault()} autoComplete="off">
             <div className="profileCardRow">
-              <FaEdit
-                className="changePersonalDetails"
+              <EditIcon
+                className={
+                  !nameEditState
+                    ? "changePersonalDetails"
+                    : "changePersonalDetails active"
+                }
                 onClick={handleUpdateName}
                 title="edit name"
               />
@@ -194,8 +197,12 @@ function Profile() {
             </div>
 
             <div className="profileCardRow">
-              <FaEdit
-                className="changePersonalDetails"
+              <EditIcon
+                className={
+                  !emailEditState
+                    ? "changePersonalDetails"
+                    : "changePersonalDetails active"
+                }
                 onClick={handleUpdateEmail}
                 title="edit email"
               />
@@ -226,10 +233,8 @@ function Profile() {
           </form>
         </div>
 
-        <Link to="/create-listing" className="createListing">
-          <HomeIcon className="createListingIcon" />
-          <p>Sell or rent your home</p>
-          <ArrowRightIcon className="createListingIcon" />
+        <Link to="/create-listing" className="primaryButton createListing">
+          Sell / Rent Your Home
         </Link>
 
         {!loading && listings?.length > 0 && (

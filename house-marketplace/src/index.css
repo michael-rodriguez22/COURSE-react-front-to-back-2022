@@ -60,17 +60,20 @@ button {
 
 .primaryButton {
   cursor: pointer;
-  background: #00cc66;
-  border-radius: 1rem;
-  padding: 0.85rem 2rem;
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  background-color: #2c2c2c;
   color: #ffffff;
   font-weight: 600;
   font-size: 1.25rem;
-  width: 80%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.2);
+  transition: 0.4s ease;
+}
+
+.primaryButton:hover {
+  background-color: #00cc66;
+  color: #2c2c2c;
 }
 
 .removeIcon {
@@ -658,8 +661,12 @@ button {
 .changePersonalDetails {
   cursor: pointer;
   font-weight: 600;
-  color: #00cc66;
+  fill: #2c2c2c;
   margin-right: 2px;
+}
+
+.changePersonalDetails.active {
+  fill: #00cc66;
 }
 
 .profileCard {
@@ -707,33 +714,8 @@ button {
 }
 
 .createListing {
-  border-radius: 1rem;
-  padding: 0.25rem 1rem;
-  box-shadow: rgba(0, 0, 0, 0.2);
   margin-top: 2rem;
-  font-weight: 600;
   max-width: 600px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #2c2c2c;
-  color: white;
-  transition: 0.4s ease;
-}
-
-.createListing:hover {
-  background-color: #00cc66;
-}
-
-.createListingIcon {
-  fill: #00cc66;
-  transition: fill 0.4s ease;
-}
-
-.createListing:hover .createListingIcon,
-.createListing:hover p {
-  fill: #2c2c2c;
-  color: #2c2c2c;
 }
 
 .listingText {
