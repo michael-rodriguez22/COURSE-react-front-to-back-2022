@@ -363,7 +363,7 @@ button {
 .swiperSlideText {
   color: #ffffff;
   position: absolute;
-  top: 70px;
+  top: 0;
   left: 0;
   font-weight: 600;
   max-width: 90%;
@@ -380,18 +380,23 @@ button {
 .swiperSlidePrice {
   color: #000000;
   position: absolute;
-  top: 143px;
+  top: 120px;
   left: 11px;
   font-weight: 600;
-  max-width: 90%;
   background-color: #ffffff;
   padding: 0.25rem 0.5rem;
   border-radius: 1rem;
 }
-@media (min-width: 1024px) {
-  .swiperSlidePrice {
-    font-size: 1.25rem;
-  }
+
+.swiperSlideDiscount {
+  color: #fff;
+  position: absolute;
+  top: 150px;
+  left: 11px;
+  font-weight: 600;
+  background-color: #00cc66;
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
 }
 
 .exploreCategories {
@@ -480,6 +485,11 @@ button {
   margin-bottom: 0;
   display: flex;
   align-items: center;
+}
+
+.categoryListingSpan {
+  font-size: 0.9rem;
+  color: #000;
 }
 
 .categoryListingInfoDiv {
@@ -665,7 +675,7 @@ button {
   font-weight: 600;
   color: #ffffff;
   background-color: #00cc66;
-  padding: 0.25rem 0.75rem;
+  padding: 0.5rem 1rem;
   border-radius: 1rem;
 }
 
