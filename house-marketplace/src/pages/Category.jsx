@@ -32,7 +32,7 @@ function Category() {
           listingsRef,
           where("type", "==", params.categoryName),
           orderBy("timestamp", "desc"),
-          limit(10)
+          limit(3)
         )
 
         // execute query and get snapshot
@@ -68,7 +68,7 @@ function Category() {
         where("type", "==", params.categoryName),
         orderBy("timestamp", "desc"),
         startAfter(lastFetchedListing),
-        limit(10)
+        limit(2)
       )
 
       // execute query and get snapshot

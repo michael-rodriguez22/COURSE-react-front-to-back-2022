@@ -26,6 +26,11 @@ function ListingItem({ listing, id, onEdit, onDelete }) {
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             {listing.type === "rent" && " / Month"}
+            {listing.offer && (
+              <span className="categoryListingSpan">
+                &nbsp;&nbsp;&nbsp;&nbsp;On Sale!
+              </span>
+            )}
           </p>
           <div className="categoryListingInfoDiv">
             <img src={bedIconSrc} alt="bed" />

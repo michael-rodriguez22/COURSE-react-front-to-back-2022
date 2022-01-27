@@ -17,7 +17,7 @@ function Slider() {
   useEffect(() => {
     const fetchListings = async () => {
       const listingsRef = collection(db, "listings")
-      const q = query(listingsRef, orderBy("timestamp", "asc"), limit(5))
+      const q = query(listingsRef, orderBy("timestamp", "desc"), limit(5))
       const querySnap = await getDocs(q)
 
       const listings = []
@@ -53,9 +53,25 @@ function Slider() {
               >
                 <p className="swiperSlideText">{data.name}</p>
                 <p className="swiperSlidePrice">
-                  ${data.discountedPrice ?? data.regularPrice}
+                  $
+                  {data.offer
+                    ? data.discountedPrice
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                    : data.regularPrice
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   {data.type === "rent" && " / month"}
                 </p>
+                {data.offer && (
+                  <p className="swiperSlideDiscount">
+                    $
+                    {(data.regularPrice - data.discountedPrice)
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    &nbsp;Discount!
+                  </p>
+                )}
               </div>
             </SwiperSlide>
           ))}
