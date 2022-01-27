@@ -4,7 +4,7 @@ A collection of project files and reviews for [Brad Traversy's](https://www.trav
 
 ## Feedback App
 
-https://angry-swirles-b6e3c6.netlify.app/
+https://michael-rodriguez22-feedback-app.vercel.app/
 
 ## GitHub Finder
 
@@ -12,8 +12,7 @@ https://michael-rodriguez22-github-finder.vercel.app/
 
 ## House Marketplace
 
-https://michael-rodriguez22-house-marketplace-4xeh7tz7n.vercel.app/
-
+https://michael-rodriguez22-house-marketplace.vercel.app/
 
 ## Review
 
