@@ -110,6 +110,7 @@ function Listing() {
             style={{ height: "100%", width: "100%" }}
             center={[listing.geolocation.lat, listing.geolocation.lng]}
             zoom={13}
+            scrollWheelZoom={false}
           >
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -126,8 +127,8 @@ function Listing() {
 
         {auth.currentUser?.uid !== listing.userRef && (
           <Link
-            to={`/contact/${listing.userRef}?listingName=${listing.name}`}
-            className="primaryButton"
+            to={`/contact/${listing.userRef}/${params.listingId}`}
+            className="primaryButton contactButton"
           >
             Contact Owner
           </Link>

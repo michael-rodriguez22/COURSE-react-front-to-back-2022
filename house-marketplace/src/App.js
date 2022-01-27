@@ -37,7 +37,7 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/create-listing" element={<CreateListing />} />
           <Route path="/edit-listing/:listingId" element={<EditListing />} />
-          <Route path="/contact/:ownerId" element={<Contact />} />
+          <Route path="/contact/:ownerId/:listingId" element={<Contact />} />
         </Routes>
         <Navbar />
       </Router>

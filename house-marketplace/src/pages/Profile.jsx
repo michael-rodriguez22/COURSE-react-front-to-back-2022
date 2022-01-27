@@ -240,7 +240,7 @@ function Profile() {
         {!loading && listings?.length > 0 && (
           <>
             <p className="listingText">Your Listings</p>
-            <ul className="listingsList">
+            <ul className="categoryListings">
               {listings.map(listing => (
                 <ListingItem
                   key={listing.id}

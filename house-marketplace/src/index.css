@@ -34,7 +34,7 @@ button {
   box-shadow: rgba(0, 0, 0, 0.11);
   border: none;
   background: #ffffff;
-  border-radius: 3rem;
+  border-radius: 1rem;
   height: 3rem;
   width: 100%;
   outline: none;
@@ -71,7 +71,8 @@ button {
   transition: 0.2s ease;
 }
 
-.primaryButton:hover {
+.primaryButton:hover,
+.primaryButton:focus {
   background-color: #00cc66;
   color: #2c2c2c;
 }
@@ -429,6 +430,7 @@ button {
   align-items: center;
   margin-bottom: 1rem;
   position: relative;
+  max-width: 1260px;
 }
 
 .categoryListingLink {
@@ -602,6 +604,13 @@ button {
   font-weight: 600;
 }
 
+.contactButton {
+  display: block;
+  width: stretch;
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
 .contactListingName {
   margin-top: -1rem;
   margin-bottom: 0;
@@ -613,30 +622,32 @@ button {
   font-weight: 600;
 }
 
-.contactOwner {
-  margin-top: 2rem;
-  display: flex;
-  align-items: center;
+.contactLabel {
+  margin: 1rem 0 0.5rem;
 }
 
-.ownerName {
-  font-weight: 600;
-  font-size: 1.2rem;
+.contactValue {
+  border-radius: 1rem;
+  background-color: #fff;
+  border: none;
+  font-size: 1rem;
+  width: stretch;
+  margin: 0;
+  padding: 0.75rem 1rem;
 }
 
-.messageForm {
-  margin-top: 0.5rem;
+.contactValue[readonly] {
+  background-color: #cfcfcf;
 }
 
-.messageDiv {
-  margin-top: 2rem;
+.contactValue:focus {
+  outline: none;
+}
+
+.contactFormWrapper {
   display: flex;
   flex-direction: column;
   margin-bottom: 4rem;
-}
-
-.messageLabel {
-  margin-bottom: 0.5rem;
 }
 
 .profile {
