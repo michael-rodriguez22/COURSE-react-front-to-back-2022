@@ -1,6 +1,12 @@
-_This is a collection of reviews, project files, and links to deployed sites for [Brad Traversy's](https://www.traversymedia.com/) course ["React Front To Back 2022"](https://www.udemy.com/course/react-front-to-back-2022/?referralCode=4A622C7E48DB66154114)._
+## My Thoughts
 
-### I highly recommend this course to anybody looking to sharpen their skills as a React developer!
+["React Front To Back 2022"](https://www.udemy.com/course/react-front-to-back-2022/?referralCode=4A622C7E48DB66154114) by [Brad Traversy](https://www.traversymedia.com/) contains roughly 20 hours of lectures discussing React fundamentals alongside three projects that become increasingly more complex. 
+
+Though I already had a fair understanding of React coming into this course, I still found it to be a worthwhile and informative investment. Coding along through these lectures, you can expect to lots of hands-on practice and a deep understanding of the React workflow. 
+
+Things like creating components, managing state, conditionally rendering content to the DOM, etc. will all become second nature well before you complete the course. You will also be introduced to many helpful third party tools and resources, such as [react-toastify](https://fkhadra.github.io/react-toastify/introduction), [Tailwindcss](https://tailwindcss.com/), [Firebase](https://firebase.google.com/), and more!
+
+**Overall, I highly recommend this course to anyone looking to sharpen their skills as a react developer.**
 
 # Feedback App
 
@@ -23,5 +29,3 @@ The styles used here all come from a single pre-made index.css file rendered at 
 https://michael-rodriguez22-house-marketplace.vercel.app/
 
 ---
-
-_At the time of writing this README, Brad has mentioned a possible fourth project that may be added in the future._
