@@ -1,31 +1,32 @@
 const asyncHandler = require("express-async-handler")
 const bcrypt = require("bcryptjs")
+const jwt = require("jsonwebtoken")
 const { User } = require("../models")
 
-// @desc    Register a new user
+const generateToken = id => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: "30d",
+  })
+}
+
 // @route   /api/users
 // @access  Public
 const registerUser = asyncHandler(async ({ body }, res) => {
   const { name, email, password } = body
 
-  // require name, email, password
   if (!name || !email || !password) {
     res.status(400)
     throw new Error("Please include all fields")
   }
 
-  // find if user already exists
   const userExists = await User.findOne({ email })
   if (userExists) {
     res.status(400)
     throw new Error("User already exists")
   }
 
-  // hash password
   const salt = await bcrypt.genSalt(10)
   const hashedPassword = await bcrypt.hash(password, salt)
-
-  // save to db
   const user = await User.create({
     name,
     email,
@@ -38,6 +39,7 @@ const registerUser = asyncHandler(async ({ body }, res) => {
       name: user.name,
       email: user.email,
       createdAt: user.createdAt,
+      token: generateToken(user._id),
     })
   } else {
     res.status(400)
@@ -45,11 +47,29 @@ const registerUser = asyncHandler(async ({ body }, res) => {
   }
 })
 
-// @desc    Login a returning user
 // @route   /api/users
 // @access  Public
-const loginUser = asyncHandler(async (req, res) => {
-  res.send("Login User")
+const loginUser = asyncHandler(async ({ body }, res) => {
+  const { email, password } = body
+
+  if (!email || !password) {
+    res.status(404)
+    throw new Error("Please include an email and password")
+  }
+
+  const user = await User.findOne({ email })
+
+  if (user && (await bcrypt.compare(password, user.password))) {
+    return res.json({
+      id: user._id.toString(),
+      name: user.name,
+      email: user.email,
+      token: generateToken(user._id),
+    })
+  } else {
+    res.status(401)
+    throw new Error("Invalid login credentials")
+  }
 })
 
 module.exports = {
