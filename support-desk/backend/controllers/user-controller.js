@@ -3,14 +3,9 @@ const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const { User } = require("../models")
 
-const generateToken = id => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: "30d",
-  })
-}
-
 // @route   /api/users
 // @access  Public
+// @method  POST
 const registerUser = asyncHandler(async ({ body }, res) => {
   const { name, email, password } = body
 
@@ -35,7 +30,7 @@ const registerUser = asyncHandler(async ({ body }, res) => {
 
   if (user) {
     return res.status(201).json({
-      id: user._id.toString(),
+      id: user._id,
       name: user.name,
       email: user.email,
       createdAt: user.createdAt,
@@ -49,6 +44,7 @@ const registerUser = asyncHandler(async ({ body }, res) => {
 
 // @route   /api/users
 // @access  Public
+// @method  POST
 const loginUser = asyncHandler(async ({ body }, res) => {
   const { email, password } = body
 
@@ -61,7 +57,7 @@ const loginUser = asyncHandler(async ({ body }, res) => {
 
   if (user && (await bcrypt.compare(password, user.password))) {
     return res.json({
-      id: user._id.toString(),
+      id: user._id,
       name: user.name,
       email: user.email,
       token: generateToken(user._id),
@@ -72,7 +68,25 @@ const loginUser = asyncHandler(async ({ body }, res) => {
   }
 })
 
+// @route   /api/users/me
+// @access  Private
+// @method  GET
+const getMe = asyncHandler(async ({ user }, res) => {
+  const body = {
+    id: user._id,
+    name: user.name,
+    email: user.email,
+  }
+  return res.json(body)
+})
+
+const generateToken = id => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: "30d",
+  })
+}
 module.exports = {
   registerUser,
   loginUser,
+  getMe,
 }

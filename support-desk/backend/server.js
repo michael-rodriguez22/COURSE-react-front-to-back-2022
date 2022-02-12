@@ -7,7 +7,9 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(require("./routes"))
-app.use(require("./middleware/error-handler"))
+
+const { errorHandler } = require("./middleware")
+app.use(errorHandler)
 
 const { PORT = 5000 } = process.env
 const connectDB = require("./config/connection")
