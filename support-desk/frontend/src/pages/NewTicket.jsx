@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import { createTicket, reset } from "../features/tickets/ticket-slice"
-import { Spinner } from "../Components"
+import { BackButton, Spinner } from "../Components"
 
 function NewTicket() {
   const { user } = useSelector(state => state.auth)
@@ -39,6 +39,7 @@ function NewTicket() {
 
   return (
     <>
+      <BackButton url="/" />
       <section className="heading">
         <h1>Create New Ticket</h1>
         <p>What do you need help with?</p>
