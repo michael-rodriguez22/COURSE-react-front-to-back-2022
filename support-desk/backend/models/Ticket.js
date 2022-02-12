@@ -11,15 +11,19 @@ const ticketSchema = mongoose.Schema(
     product: {
       type: "String",
       required: [true, "Please select a product"],
-      enum: [
-        "iPhone",
-        "Samsung Galaxy",
-        "Google Pixel",
-        "iPad",
-        "Macbook",
-        "Windows Laptop",
-        "Windows Desktop",
-      ],
+      enum: {
+        values: [
+          "iPhone",
+          "Samsung Galaxy",
+          "Google Pixel",
+          "iPad",
+          "Macbook",
+          "Windows Laptop",
+          "Windows Desktop",
+        ],
+        message: ({ value }) =>
+          `"${value}" is not one of our recognized products`,
+      },
     },
 
     description: {
@@ -30,7 +34,11 @@ const ticketSchema = mongoose.Schema(
     status: {
       type: "String",
       required: true,
-      enum: ["new", "open", "closed"],
+      enum: {
+        values: ["new", "open", "closed"],
+        message: ({ value }) =>
+          `Invalid status "${value}" (must be new, open, or closed)`,
+      },
       default: "new",
     },
   },
