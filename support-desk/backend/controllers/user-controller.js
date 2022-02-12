@@ -3,9 +3,9 @@ const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const { User } = require("../models")
 
-// @route   /api/users
-// @access  Public
 // @method  POST
+// @access  Public
+// @route   /api/users
 const registerUser = asyncHandler(async ({ body }, res) => {
   const { name, email, password } = body
 
@@ -42,9 +42,9 @@ const registerUser = asyncHandler(async ({ body }, res) => {
   }
 })
 
-// @route   /api/users
-// @access  Public
 // @method  POST
+// @access  Public
+// @route   /api/users
 const loginUser = asyncHandler(async ({ body }, res) => {
   const { email, password } = body
 
@@ -68,9 +68,9 @@ const loginUser = asyncHandler(async ({ body }, res) => {
   }
 })
 
-// @route   /api/users/me
-// @access  Private
 // @method  GET
+// @access  Private
+// @route   /api/users/me
 const getMe = asyncHandler(async ({ user }, res) => {
   const body = {
     id: user._id,

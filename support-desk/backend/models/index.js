@@ -1,3 +1,4 @@
 const User = require("./User")
+const Ticket = require("./Ticket")
 
-module.exports = { User }
+module.exports = { User, Ticket }
