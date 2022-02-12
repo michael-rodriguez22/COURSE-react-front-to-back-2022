@@ -1,8 +1,21 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { Home, Login, Register } from "./pages"
+import { Header } from "./Components"
+
 function App() {
   return (
-    <div>
-      <h1>support desk</h1>
-    </div>
+    <>
+      <Router>
+        <div className="container">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </div>
+      </Router>
+    </>
   )
 }
 
