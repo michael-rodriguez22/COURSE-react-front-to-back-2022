@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = "/api/users"
+const API_URL = "/api/users/"
 
 const register = async userData => {
   const response = await axios.post(API_URL, userData)
@@ -11,7 +11,7 @@ const register = async userData => {
 }
 
 const login = async credentials => {
-  const response = await axios.post(`${API_URL}/login`, credentials)
+  const response = await axios.post(API_URL + "login", credentials)
   if (response.data) {
     localStorage.setItem("support-ticket/user", JSON.stringify(response.data))
   }
