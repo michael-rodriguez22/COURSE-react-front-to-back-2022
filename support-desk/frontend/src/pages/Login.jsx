@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { FaSignInAlt } from "react-icons/fa"
 import { toast } from "react-toastify"
+import { useDispatch, useSelector } from "react-redux"
+import { login } from "../features/auth/auth-slice"
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -9,6 +11,12 @@ function Login() {
   })
 
   const { email, password } = formData
+
+  const dispatch = useDispatch()
+
+  const { user, isLoading, isSuccess, message } = useSelector(
+    state => state.auth
+  )
 
   const onChange = e => {
     setFormData(prev => ({
@@ -23,6 +31,8 @@ function Login() {
     for (const field in formData) {
       if (!formData[field]) return toast.warn(`${field} field is required`)
     }
+
+    dispatch(login(formData))
   }
 
   return (
