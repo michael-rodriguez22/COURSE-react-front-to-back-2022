@@ -1,8 +1,8 @@
 const router = require("express").Router(),
   userRoutes = require("./user-routes"),
-  ticketRoutes = require("./ticket-routes")
+  ticketAndNoteRoutes = require("./ticket-and-note-routes")
 
 router.use("/users", userRoutes)
-router.use("/tickets", ticketRoutes)
+router.use("/tickets", ticketAndNoteRoutes)
 
 module.exports = router

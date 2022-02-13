@@ -1,5 +1,7 @@
 const router = require("express").Router()
 const { protect } = require("../../middleware")
+
+// tickets
 const {
   getAllTickets,
   getSingleTicket,
@@ -16,4 +18,10 @@ router
   .put(protect, updateTicket)
   .delete(protect, deleteTicket)
 
+// notes
+const { getNotes, addNote } = require("../../controllers/note-controller")
+
+router.route("/:ticketId/notes").get(protect, getNotes).post(protect, addNote)
+
+router.route("/:ticketId/notes/:noteId")
 module.exports = router

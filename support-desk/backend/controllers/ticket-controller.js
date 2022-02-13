@@ -69,7 +69,7 @@ const createTicket = asyncHandler(async (req, res) => {
 
 // @method  PUT
 // @access  Private
-// @route   /api/tickets/"id"
+// @route   /api/tickets/:id
 const updateTicket = asyncHandler(async (req, res) => {
   const payload = {}
   const { product, description, status } = req.body
