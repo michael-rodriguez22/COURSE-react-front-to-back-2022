@@ -172,7 +172,7 @@ h3 {
 }
 
 .btn-danger {
-  background: darkred;
+  background: crimson;
   border: none;
 }
 
@@ -238,19 +238,19 @@ h3 {
 }
 
 .status-new {
-  background-color: green;
+  background-color: darkgreen;
   color: #fff;
   border-radius: 10px;
 }
 
 .status-open {
-  background-color: steelblue;
+  background-color: royalblue;
   color: #fff;
   border-radius: 10px;
 }
 
 .status-closed {
-  background-color: darkred;
+  background-color: crimson;
   color: #fff;
   border-radius: 10px;
 }
@@ -278,7 +278,7 @@ h3 {
 .ticket-desc {
   margin: 20px 0;
   font-size: 17px;
-  background-color: #f4f4f4;
+  background-color: #ddd;
   border: 1px #ccc solid;
   padding: 10px 15px;
   border-radius: 5px;
@@ -294,7 +294,7 @@ h3 {
 }
 
 .note-head {
-  background: #f4f4f4;
+  background: #ddd;
   padding: 5px 20px;
   display: flex;
   justify-content: space-between;
@@ -342,7 +342,7 @@ p.status-waiting {
 }
 
 p.status-ready {
-  color: steelblue;
+  color: royalblue;
 }
 
 p.status-complete {

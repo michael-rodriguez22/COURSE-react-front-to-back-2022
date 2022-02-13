@@ -1,6 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom"
 import { useAuthStatus } from "../hooks/useAuthStatus"
-import { toast } from "react-toastify"
 import Spinner from "./Spinner"
 
 const PrivateRoute = () => {
