@@ -130,6 +130,10 @@ h3 {
   font-family: inherit;
 }
 
+.form-group textarea {
+  resize: vertical;
+}
+
 .form-group label {
   text-align: left;
   display: block;
