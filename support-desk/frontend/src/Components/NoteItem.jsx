@@ -8,7 +8,7 @@ function NoteItem({ note }) {
       className="note"
       style={{
         backgroundColor: note.isStaff ? "rgba(0,0,0,0.7" : "#fff",
-        textColor: note.isStaff ? "fff" : "000",
+        color: note.isStaff ? "#fff" : "#000",
       }}
     >
       <h4>

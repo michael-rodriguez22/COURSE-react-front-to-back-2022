@@ -2,7 +2,11 @@ import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { getTicket, closeTicket } from "../features/tickets/ticket-slice"
-import { getNotes, reset as notesReset } from "../features/notes/note-slice"
+import {
+  getNotes,
+  addNote,
+  reset as notesReset,
+} from "../features/notes/note-slice"
 import { Spinner, BackButton, NoteItem } from "../Components"
 import { toast } from "react-toastify"
 import Modal from "react-modal"
@@ -10,7 +14,8 @@ import { FaPlus } from "react-icons/fa"
 
 const modalStyles = {
   content: {
-    width: "600px",
+    width: "80%",
+    maxWidth: "600px",
     top: "50%",
     left: "50%",
     right: "auto",
@@ -55,7 +60,7 @@ function Ticket() {
 
   const onNoteSubmit = e => {
     e.preventDefault()
-    // addNote
+    dispatch(addNote({ noteText, ticketId }))
     closeModal()
   }
 
