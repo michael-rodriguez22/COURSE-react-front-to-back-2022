@@ -4,7 +4,7 @@ import { toast } from "react-toastify"
 import { useDispatch, useSelector } from "react-redux"
 import { login, reset } from "../features/auth/auth-slice"
 import { useNavigate } from "react-router-dom"
-import { Spinner } from "../Components"
+import { BackButton, Spinner } from "../Components"
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -53,6 +53,7 @@ function Login() {
 
   return (
     <>
+      <BackButton url="/" />
       <section className="heading">
         <h1>
           <FaSignInAlt />

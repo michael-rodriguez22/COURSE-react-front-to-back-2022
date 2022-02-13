@@ -5,11 +5,11 @@ function Home() {
   return (
     <>
       <section className="heading">
-        <h1>How can we help?</h1>
+        <h1>What would you like to do?</h1>
         <p>Select from the options below</p>
       </section>
 
-      <Link to="/new-ticket" className="btn btn-reverse btn-block">
+      <Link to="/tickets" className="btn btn-reverse btn-block">
         <FaTicketAlt />
         View My Tickets
       </Link>
