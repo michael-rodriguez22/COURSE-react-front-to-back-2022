@@ -28,4 +28,6 @@ const addNote = async (noteText, ticketId, token) => {
   return response.data
 }
 
-export default { getNotes, addNote }
+const noteService = { getNotes, addNote }
+
+export default noteService

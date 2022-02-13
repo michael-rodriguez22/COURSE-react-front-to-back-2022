@@ -5,7 +5,7 @@ const initialState = {
   notes: [],
   isLoading: false,
   isError: false,
-  isError: false,
+  isSuccess: false,
   message: "",
 }
 
